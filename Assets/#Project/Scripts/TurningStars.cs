@@ -13,7 +13,7 @@ public class TurningStars : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log($"{transform.rotation.y}");
+        //Debug.Log($"{transform.rotation.y}");
         //starsRotationY = starsRotationY * speed * Time.deltaTime;
 
         starsRotationY = turningDegrees * (turningSpeed*Time.deltaTime);
