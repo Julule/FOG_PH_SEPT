@@ -19,7 +19,7 @@ public class TalkableNPC : MonoBehaviour
         if (other == playerCollider)
             Debug.Log($"collision with {player} !");
             talkButton.SetActive(true);
-            // TalkButton();
+            // PlayerStatesMachine.SwitchState(Player_Talk)
     }
 
     void OnTriggerExit(Collider other)
@@ -27,5 +27,6 @@ public class TalkableNPC : MonoBehaviour
         Collider playerCollider = player.GetComponent<Collider>();
         if (other == playerCollider)
             talkButton.SetActive(false);
+            // PlayerStates.SwitchState(Walk)
     }
 }
