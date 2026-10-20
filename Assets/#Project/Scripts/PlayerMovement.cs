@@ -34,32 +34,6 @@ public class PlayerMovement : MonoBehaviour
         inputActions.FindActionMap(ACTION_MAP).Enable();
     }
 
-    // void FixedUpdate() // Update qui va à la même vitesse tout le temps
-    // {
-    //     Vector2 direction = moveAction.ReadValue<Vector2>(); // renvoie un vecteur2 (2d)
-    //     // if(direction != Vector2.zero)
-    //     // {
-    //     //     animator.SetBool("IsWalking", true);
-    //     // }
-    //     // else
-    //     // {
-    //     //     animator.SetBool("IsWalking", false);
-    //     // }
-    //     float horizontal = direction.x;
-    //     float vertical = direction.y;
-
-    //     Vector3 movement = new(horizontal, 0f, vertical);
-    //     movement.Normalize();
-
-    //     Vector3 desiredForward = Vector3.RotateTowards(transform.forward, movement, turnSpeed * Time.fixedDeltaTime, 0f);
-
-    //     Quaternion rotation = Quaternion.LookRotation(desiredForward);
-
-    //     playerRigidbody.MoveRotation(rotation);
-
-    //     playerRigidbody.MovePosition(playerRigidbody.position + movement * walkSpeed * Time.fixedDeltaTime); // on calcule le déplacement vie l'opération : positionactuelle + movement*rapidité*temps
-
-    // }
 
     void Update()
     {
@@ -69,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         Vector3 moveAmount = moveAction.ReadValue<Vector3>(); // recupérer l'entrée keyboard  moveAmount
-        Debug.Log($"moveAmount {moveAmount}");
+        // Debug.Log($"moveAmount {moveAmount}");
         Vector3 move = moveAmount * walkSpeed * Time.deltaTime;
         transform.position += move;
         //Vector3 move = new Vector3(moveAmount.x,0f,moveAmount.y) * walkSpeed * Time.deltaTime;

@@ -1,10 +1,12 @@
 using System;
+using Unity.Collections;
 using UnityEngine;
 
 public class CameraPosition : MonoBehaviour
 {
     [SerializeField] private GameObject objectToFollow;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
+    [SerializeField] private Vector3 cameraDistance;
     void Start()
     {
         
@@ -19,6 +21,6 @@ public class CameraPosition : MonoBehaviour
     private void CameraFollowing()
     {
        Transform objectToFollowTransform = objectToFollow.transform;
-        transform.position = objectToFollowTransform.position;
+        transform.position = objectToFollowTransform.position + cameraDistance;
     }
 }
