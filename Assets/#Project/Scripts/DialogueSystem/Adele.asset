@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Adele
   m_EditorClassIdentifier: Assembly-CSharp::ActorSO
   actorName: Adele
-  portrait: {fileID: 21300000, guid: 8b254fef8ceaa2b4d89df7f26368f8aa, type: 3}
+  portrait: {fileID: 21300000, guid: 1320c43cb32e32e4d8cc180901017640, type: 3}

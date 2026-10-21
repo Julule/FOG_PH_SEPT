@@ -3,9 +3,12 @@ using UnityEngine;
 
 public class TalkableNPC : MonoBehaviour
 {
-
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject talkButton;
+    [SerializeField] private PlayerStateMachine stateMachine;
+    private PlayerStateMachine.PlayerStates talk;
+    private PlayerStateMachine.PlayerStates walk;
+
 
     void Start()
     {
@@ -17,16 +20,19 @@ public class TalkableNPC : MonoBehaviour
         Collider playerCollider = player.GetComponent<Collider>();
 
         if (other == playerCollider)
-            Debug.Log($"collision with {player} !");
+            Debug.Log($"Trigger Enter ! Collision with {player} !");
             talkButton.SetActive(true);
-            // PlayerStatesMachine.SwitchState(Player_Talk)
+            talk = PlayerStateMachine.PlayerStates.Talk;
+            stateMachine.SwitchState(talk);
     }
 
     void OnTriggerExit(Collider other)
     {
         Collider playerCollider = player.GetComponent<Collider>();
         if (other == playerCollider)
+            Debug.Log($"Trigger Exit !");
             talkButton.SetActive(false);
-            // PlayerStates.SwitchState(Walk)
+            // walk = PlayerStateMachine.PlayerStates.Walk;
+            // stateMachine.SwitchState(walk);
     }
 }

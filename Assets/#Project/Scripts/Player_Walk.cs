@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class Player_Walk : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    
+    private PlayerMovement playerMovement;
 
-    // Update is called once per frame
+    void Awake()
+    {
+        playerMovement = GetComponent<PlayerMovement>();
+    }
     void Update()
     {
-        
+        UnFreeze();
+    }
+    void UnFreeze()
+    {
+        // if (playerMovement.gameObject == false)
+        playerMovement.gameObject.SetActive(true);
     }
 }

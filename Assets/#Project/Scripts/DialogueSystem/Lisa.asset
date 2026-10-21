@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Lisa
   m_EditorClassIdentifier: Assembly-CSharp::ActorSO
   actorName: Lisa
-  portrait: {fileID: 21300000, guid: 3d30131480735c642b01537d854118f6, type: 3}
+  portrait: {fileID: 21300000, guid: 07c70c3ade34ab044b05713fdebe5f6f, type: 3}
