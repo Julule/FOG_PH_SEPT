@@ -4,17 +4,33 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public static DialogueManager Instance;
+
     [Header("UI References")]
     public Image portrait;
     public TMP_Text actorName;
     public TMP_Text dialogueText;
+    public bool activeDialogue;
 
-    public DialogueSO currentDialogue;
+    private DialogueSO currentDialogue;
     private int dialogueIndex;
+
+    private void Awake() // check wether Instance already exists at awake / or destroy.
+    {
+        if (Instance == null)
+            Instance = this; // Instance variable contains this one, s it's availabke to the Player_Talk state
+        else 
+            Destroy(gameObject);
+    }
 
     private void Start()
     {
+    }
+
+    public void StartDialogue(DialogueSO dialogueSO)
+    {
+        currentDialogue = dialogueSO;
         ShowDialogue();
     }
     private void ShowDialogue()
