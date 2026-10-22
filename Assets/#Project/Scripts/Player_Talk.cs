@@ -5,9 +5,6 @@ public class Player_Talk : MonoBehaviour
 
     private PlayerMovement playerMovement;
 
-    public DialogueSO dialogueSO;
-    
-    
 
     void Awake()
     {
@@ -17,16 +14,10 @@ public class Player_Talk : MonoBehaviour
     void Update()
     {
         Freeze(); // Opti : maybe a better way would be to use OnEnable and OnDisable to activate playerMovement
-
-        if(Input.GetButtonDown("Inbteract"))
-        {
-            if (DialogueSO.Instance)
-            {
-                
-            }
-        }
-    
+        // button.onClick.AddListener(() => DialogueManager.Instance.StartDialogue(dialogueSO));
     }
+
+
     void Freeze()
     {
         // if (playerMovement.gameObject == true)

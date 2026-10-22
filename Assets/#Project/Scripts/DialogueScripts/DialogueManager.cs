@@ -5,7 +5,7 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
 
-    public static DialogueManager Instance;
+    public static DialogueManager Instance; // dispo pour les states
 
     [Header("UI References")]
     public Image portrait;
@@ -19,7 +19,7 @@ public class DialogueManager : MonoBehaviour
     private void Awake() // check wether Instance already exists at awake / or destroy.
     {
         if (Instance == null)
-            Instance = this; // Instance variable contains this one, s it's availabke to the Player_Talk state
+            Instance = this; // Instance variable contains this one
         else 
             Destroy(gameObject);
     }
