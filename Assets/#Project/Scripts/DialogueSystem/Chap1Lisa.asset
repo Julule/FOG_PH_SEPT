@@ -19,5 +19,12 @@ MonoBehaviour:
   - speaker: {fileID: 11400000, guid: f81fbeda897bd354fa190101f40cc7ad, type: 2}
     text: "Ah bon ? Tiens, c\u2019est bizarre. Je ne sais pas, je ne m\u2019occupe
       pas du tout de technique.. Vous en avez parl\xE9 \xE0 Cl\xE9lia ?"
-  rightDialogueClue: "Cl\xE9lia est hackeuse"
-  fakeDialogueClue: Le tableau de bord indique une nouvelle info !
+  optionToRightClue:
+  - optionText: Je peux lui faire confiance ?
+    nextDialogue: {fileID: 11400000, guid: cdfbcf90b2741cb41afc4b17bd3b36d7, type: 2}
+    clue: "Cl\xE9lia est hackeuse"
+  optionToFalseClue:
+  - optionText: "La passag\xE8re qui part en vacances chez sa soeur ? "
+    nextDialogue: {fileID: 11400000, guid: c5d4bbbb62f0aa846a1ec72c8adf1123, type: 2}
+    clue: "Tableau de bord : 14h17 // Info Service : Proc\xE9dure de routine : Inspection
+      du chargement par la douane \xE0 l'arriv\xE9e"

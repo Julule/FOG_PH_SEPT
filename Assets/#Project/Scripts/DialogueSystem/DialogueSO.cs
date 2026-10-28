@@ -7,8 +7,9 @@ public class DialogueSO : ScriptableObject
 // SO permet aussi de fournir les infos à plusieurs objets différents, offre un stock de données persistantes dans le jeu
 {
     public DialogueLine[] lines;
-    public string rightDialogueClue;
-    public string fakeDialogueClue;
+    public DialogueOption[] optionToRightClue;
+
+    public DialogueOption[] optionToFalseClue;
 }
 
 [System.Serializable] // Pour intégrer et afficher l'"enfant" ActorSO dans ce SO, et qu'il soit Serializable
@@ -16,4 +17,12 @@ public class DialogueLine
 {
     public ActorSO speaker;
     [TextArea(3,5)] public string text;
+}
+
+[System.Serializable] // Pour intégrer et afficher l'"enfant" ActorSO dans ce SO, et qu'il soit Serializable
+public class DialogueOption
+{
+    [TextArea(3,5)] public string optionText; // texte de l'option
+    public DialogueSO nextDialogue; // ligne conditionelle à l'option correpsondante
+    public string clue; // right or false clue here
 }
