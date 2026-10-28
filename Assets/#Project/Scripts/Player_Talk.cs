@@ -21,6 +21,6 @@ public class Player_Talk : MonoBehaviour
     void Freeze()
     {
         // if (playerMovement.gameObject == true)
-        playerMovement.gameObject.SetActive(false);
+        playerMovement.enabled = false;
     }
 }

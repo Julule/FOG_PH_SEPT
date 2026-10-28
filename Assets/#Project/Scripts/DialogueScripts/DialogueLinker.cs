@@ -6,7 +6,7 @@ public class DialogueLinker : MonoBehaviour
     public DialogueSO dialogueSO; // to give the right Dialogue 
     public void TalkButton()
     {
-        Debug.Log("boutonnnnnn");
+        Debug.Log("bouton clicked");
         DialogueManager.Instance.StartDialogue(dialogueSO);
     }
 

@@ -17,5 +17,5 @@ MonoBehaviour:
     text: Question by Adele
   - speaker: {fileID: 11400000, guid: 7da7494417baac74791d4438af1213d0, type: 2}
     text: "Answer by Cl\xE9lia"
-  rightDialogueClue: 
-  fakeDialogueClue: 
+  rightDialogueClue: Cet indice annonce la bonne piste
+  fakeDialogueClue: Cet indice annonce la fausse piste

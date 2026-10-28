@@ -16,6 +16,6 @@ public class Player_Walk : MonoBehaviour
     void UnFreeze()
     {
         // if (playerMovement.gameObject == false)
-        playerMovement.gameObject.SetActive(true);
+        playerMovement.enabled = true;
     }
 }

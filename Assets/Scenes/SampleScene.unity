@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1149619522731318378, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3388407040397815745, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
       propertyPath: m_Size.x
       value: 3.29
@@ -149,7 +153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3579414179293115930, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.55
+      value: 6.8
       objectReference: {fileID: 0}
     - target: {fileID: 3579414179293115930, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
       propertyPath: m_LocalPosition.z
@@ -187,6 +191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Cl\xE9lia"
       objectReference: {fileID: 0}
+    - target: {fileID: 7602312539608514468, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
+      propertyPath: dialogueSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 5cd298e8b7d08bf47bffa8d89a291760, type: 2}
     - target: {fileID: 8143634538116363564, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
       propertyPath: player
       value: 
@@ -1208,9 +1216,9 @@ GameObject:
   - component: {fileID: 1475647593}
   - component: {fileID: 1475647592}
   - component: {fileID: 1475647591}
-  - component: {fileID: 1475647590}
   - component: {fileID: 1475647595}
   - component: {fileID: 1475647596}
+  - component: {fileID: 1475647590}
   - component: {fileID: 1475647600}
   - component: {fileID: 1475647599}
   - component: {fileID: 1475647598}
@@ -1708,7 +1716,7 @@ GameObject:
   - component: {fileID: 1954992106}
   - component: {fileID: 1954992111}
   m_Layer: 5
-  m_Name: DialogueCanvas
+  m_Name: DialogueOptionsCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1826,6 +1834,7 @@ MonoBehaviour:
   actorName: {fileID: 1673101796}
   dialogueText: {fileID: 997792680}
   activeDialogue: 0
+  stateMachine: {fileID: 1475647600}
 --- !u!1 &1965778590
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,7 +2463,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1149619522731318378, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3388407040397815745, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
       propertyPath: m_Sprite
