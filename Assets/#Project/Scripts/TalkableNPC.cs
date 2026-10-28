@@ -5,9 +5,6 @@ public class TalkableNPC : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject talkButton;
-    [SerializeField] private PlayerStateMachine stateMachine;
-    private PlayerStateMachine.PlayerStates talk;
-
 
     void Start()
     {
@@ -21,8 +18,7 @@ public class TalkableNPC : MonoBehaviour
         if (other == playerCollider)
             // Debug.Log($"Trigger Enter ! Collision with {player} !");
             talkButton.SetActive(true);
-            talk = PlayerStateMachine.PlayerStates.Talk;
-            stateMachine.SwitchState(talk);
+
     }
 
     void OnTriggerExit(Collider other)

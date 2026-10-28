@@ -195,6 +195,10 @@ PrefabInstance:
       propertyPath: dialogueSO
       value: 
       objectReference: {fileID: 11400000, guid: 5cd298e8b7d08bf47bffa8d89a291760, type: 2}
+    - target: {fileID: 7602312539608514468, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
+      propertyPath: stateMachine
+      value: 
+      objectReference: {fileID: 1475647600}
     - target: {fileID: 8143634538116363564, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
       propertyPath: player
       value: 
@@ -2517,6 +2521,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lisa
       objectReference: {fileID: 0}
+    - target: {fileID: 7602312539608514468, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
+      propertyPath: stateMachine
+      value: 
+      objectReference: {fileID: 1475647600}
     - target: {fileID: 8143634538116363564, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
       propertyPath: player
       value: 
