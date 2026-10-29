@@ -429,7 +429,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: texte de l'option
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0413a91be66737040b82aeaa7794d9af, type: 2}
   m_sharedMaterial: {fileID: 596112009827020852, guid: 0413a91be66737040b82aeaa7794d9af, type: 2}
@@ -1230,12 +1230,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_NormalColor: {r: 0.47450984, g: 0.47450984, b: 0.47450984, a: 1}
+    m_HighlightedColor: {r: 0.3794055, g: 0.9245283, b: 0.6970697, a: 1}
+    m_PressedColor: {r: 0.4481132, g: 0.617, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
+    m_ColorMultiplier: 5
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -1508,7 +1508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30.47, y: -2.6}
+  m_AnchoredPosition: {x: -30.399378, y: -3.6299205}
   m_SizeDelta: {x: 100, y: 119.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1557093752
@@ -1780,8 +1780,8 @@ CanvasGroup:
   m_GameObject: {fileID: 1954992105}
   m_Enabled: 1
   m_Alpha: 1
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &1954992107
 MonoBehaviour:
@@ -1883,7 +1883,9 @@ MonoBehaviour:
   actorName: {fileID: 1673101796}
   dialogueText: {fileID: 997792680}
   activeDialogue: 0
-  choiceButtons: []
+  choiceButtons:
+  - {fileID: 1436821237}
+  - {fileID: 2093004860}
   stateMachine: {fileID: 1475647600}
 --- !u!1 &1965778590
 GameObject:
@@ -2315,12 +2317,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_NormalColor: {r: 0.47450984, g: 0.47450984, b: 0.47450984, a: 1}
+    m_HighlightedColor: {r: 0.3794055, g: 0.9245283, b: 0.6970697, a: 1}
+    m_PressedColor: {r: 0.4481132, g: 0.617, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
+    m_ColorMultiplier: 5
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -2395,7 +2397,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Texte de l'option
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0413a91be66737040b82aeaa7794d9af, type: 2}
   m_sharedMaterial: {fileID: 596112009827020852, guid: 0413a91be66737040b82aeaa7794d9af, type: 2}

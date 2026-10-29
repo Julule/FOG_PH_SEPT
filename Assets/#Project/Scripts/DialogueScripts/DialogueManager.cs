@@ -3,6 +3,10 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using UnityEditor.XR;
+using System.Runtime.InteropServices;
+using System.Xml.Linq;
+using Unity.Android.Gradle;
+using System.Runtime.ExceptionServices;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -45,46 +49,65 @@ public class DialogueManager : MonoBehaviour
     }
     private void ShowDialogue() // cette méthode est appelée pour chaque ligne du dialogueSO que StartDialogue vient de passer en paramêtre.
     {
-        if(dialogueIndex < currentDialogue.lines.Length) // vérifier si notre ligne actuelle est la dernière du dialogueSO avant les options
+        if(dialogueIndex < currentDialogue.lines.Length) // vérifier s'il reste une ligne à afficher avant les options
         {
-            Debug.Log($"ligne{dialogueIndex} sur {currentDialogue.lines.Length}");
-            gameObject.SetActive(true); // activer le dialogueCanvas
+            gameObject.SetActive(true); // activer le dialogueCanvas (c'est déjà fait au deuxième passage)
             DialogueLine line = currentDialogue.lines[dialogueIndex];
             portrait.sprite = line.speaker.portrait;
             actorName.text = line.speaker.actorName;
             dialogueText.text = line.text;
             dialogueIndex++;
-            Debug.Log($"ligne{dialogueIndex} sur {currentDialogue.lines.Length}");
         }
         else
         {
-            //EndDialogue();
             ShowChoices();
         }
     }
 
     private void ShowChoices()
     {
-        if(currentDialogue.optionToFalseClue.Length > 0 || currentDialogue.optionToRightClue.Length >0) // y'a t'il des options ?
+        if(currentDialogue.options.Length > 0) // y'a t'il des options ?
         {
-            for (int i = 0; i < currentDialogue.optionToFalseClue.Length; i++) // Pour chaque élément fake 
+            for (int i = 0; i < currentDialogue.options.Length; i++) // Pour chaque options, la right et la false 
             {
-                DialogueOption thisOption = currentDialogue.optionToFalseClue[i]; // stccker l'option fake (ligne, nextdialogue, clue)
+                DialogueOption thisOption = currentDialogue.options[i]; // stocker l'option en question (type, ligne, nextdialogue, clue)
                 choiceButtons[i].GetComponentInChildren<TMP_Text>().text = thisOption.optionText;
                 choiceButtons[i].gameObject.SetActive(true);
+                choiceButtons[i].onClick.AddListener(() => ChooseOption(thisOption.nextDialogue));
             }
+        }
+        else // il n'y a pas d'options. Ceci nets utilisé au deuxième passage, une fois qu'une option a été cliquée
+        {
+            Debug.Log("Il n'y a pas/plus d'options à ce dialogue..");
+            choiceButtons[0].GetComponentInChildren<TMP_Text>().text = "Fermer le dialogue";
+            choiceButtons[0].onClick.AddListener(EndDialogue);
+            choiceButtons[0].gameObject.SetActive(true);
+            // EndDialogue();
+            // TO DO : OpenJournal();
+        }
+    }
 
-            for (int i = 0; i < currentDialogue.optionToRightClue.Length; i++) // Pour chaque élément fake 
-            {
-                DialogueOption thisOption = currentDialogue.optionToRightClue[i]; // stccker l'option fake (ligne, nextdialogue, clue)
-                choiceButtons[i].GetComponentInChildren<TMP_Text>().text = thisOption.optionText;
-                choiceButtons[i].gameObject.SetActive(true);
-            }
+    private void ChooseOption(DialogueSO followUpDialogue)
+    {
+        if(followUpDialogue == null) // il n'y a pas de dialogueSO dans cette option de dialogue
+        {
+            // TO DO : OpenJournal();
+            // EndDialogue(); 
         }
         else
         {
-            EndDialogue();
+            StartDialogue(followUpDialogue);
+            // for (int i = 0; i < choiceButtons.Length; i++)
+            // {
+            //     Debug.Log($"Désactivation : {choiceButtons[i].gameObject.name} (parent: {choiceButtons[i].transform.parent?.name})");
+            //     choiceButtons[i].gameObject.SetActive(false);
+            // }
+            
+            // TO DO : 
+            // boutonDeFin.onClick.AddListener(() => EndDialogue();
+            // OpenJournal(); // Pour y répertorier l'indice découvert
         }
+        
     }
 
     private void EndDialogue()
