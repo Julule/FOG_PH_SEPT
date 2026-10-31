@@ -5,8 +5,9 @@ using System;
 using UnityEditor.XR;
 using System.Runtime.InteropServices;
 using System.Xml.Linq;
-using Unity.Android.Gradle;
+// using Unity.Android.Gradle;
 using System.Runtime.ExceptionServices;
+using UnityEngine.PlayerLoop;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -40,20 +41,22 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+
     public void StartDialogue(DialogueSO dialogueSO)
     {
+        Debug.Log("StartDialogue appelé");
         currentDialogue = dialogueSO;
-        //dialogueIndex = 0;
         activeDialogue = true;
         ShowDialogue();
     }
+
     private void ShowDialogue() // cette méthode est appelée pour chaque ligne du dialogueSO que StartDialogue vient de passer en paramêtre.
     {
         if(dialogueIndex < currentDialogue.lines.Length) // vérifier s'il reste une ligne à afficher avant les options
         {
             gameObject.SetActive(true); // activer le dialogueCanvas (c'est déjà fait au deuxième passage)
             DialogueLine line = currentDialogue.lines[dialogueIndex];
-            portrait.sprite = line.speaker.portrait;
+            portrait.sprite = line.speaker.portrait; 
             actorName.text = line.speaker.actorName;
             dialogueText.text = line.text;
             dialogueIndex++;
@@ -66,7 +69,7 @@ public class DialogueManager : MonoBehaviour
 
     private void ShowChoices()
     {
-        if(currentDialogue.options.Length > 0) // y'a t'il des options ?
+        if(currentDialogue.options.Length > 0) // si y'a des options ?
         {
             for (int i = 0; i < currentDialogue.options.Length; i++) // Pour chaque options, la right et la false 
             {
@@ -76,14 +79,9 @@ public class DialogueManager : MonoBehaviour
                 choiceButtons[i].onClick.AddListener(() => ChooseOption(thisOption.nextDialogue));
             }
         }
-        else // il n'y a pas d'options. Ceci nets utilisé au deuxième passage, une fois qu'une option a été cliquée
+        else // il n'y a pas d'options. Ceci n'est utilisé qu'au deuxième passage, une fois qu'une option a été cliquée
         {
-            Debug.Log("Il n'y a pas/plus d'options à ce dialogue..");
-            choiceButtons[0].GetComponentInChildren<TMP_Text>().text = "Fermer le dialogue";
-            choiceButtons[0].onClick.AddListener(EndDialogue);
-            choiceButtons[0].gameObject.SetActive(true);
-            // EndDialogue();
-            // TO DO : OpenJournal();
+            //Rien 
         }
     }
 
@@ -91,23 +89,27 @@ public class DialogueManager : MonoBehaviour
     {
         if(followUpDialogue == null) // il n'y a pas de dialogueSO dans cette option de dialogue
         {
-            // TO DO : OpenJournal();
-            // EndDialogue(); 
+            // TO DO : Nothing
         }
         else
         {
+            InitializeDialogue();
             StartDialogue(followUpDialogue);
-            // for (int i = 0; i < choiceButtons.Length; i++)
-            // {
-            //     Debug.Log($"Désactivation : {choiceButtons[i].gameObject.name} (parent: {choiceButtons[i].transform.parent?.name})");
-            //     choiceButtons[i].gameObject.SetActive(false);
-            // }
-            
+            Debug.Log("Il n'y a pas/plus d'options à ce dialogue..");
+            choiceButtons[0].GetComponentInChildren<TMP_Text>().text = "Fermer le dialogue";
+            choiceButtons[0].gameObject.SetActive(true);
+            choiceButtons[1].gameObject.SetActive(false);
+
+            choiceButtons[0].onClick.AddListener(EndDialogue);
             // TO DO : 
-            // boutonDeFin.onClick.AddListener(() => EndDialogue();
             // OpenJournal(); // Pour y répertorier l'indice découvert
         }
         
+    }
+
+    private void InitializeDialogue()
+    {
+        dialogueIndex = 0;
     }
 
     private void EndDialogue()

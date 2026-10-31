@@ -207,7 +207,8 @@ PrefabInstance:
       propertyPath: stateMachine
       value: 
       objectReference: {fileID: 1475647600}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1149619522731318378, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -2610,6 +2611,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5799239333407458780, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 73.596
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799239333407458780, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -57.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984534223546396777, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 7.8536
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984534223546396777, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 4.9263
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984534223546396777, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.1314
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984534223546396777, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398156387603307368, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
+      propertyPath: m_margin.w
+      value: 0.80268836
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398156387603307368, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
+      propertyPath: m_margin.y
+      value: 0.6315907
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398156387603307368, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
+      propertyPath: m_margin.z
+      value: 0.048092365
+      objectReference: {fileID: 0}
     - target: {fileID: 6969981840677737093, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
       propertyPath: m_Name
       value: Lisa
@@ -2618,15 +2655,28 @@ PrefabInstance:
       propertyPath: stateMachine
       value: 
       objectReference: {fileID: 1475647600}
+    - target: {fileID: 7871836306051989774, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871836306051989774, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.94
+      objectReference: {fileID: 0}
     - target: {fileID: 8143634538116363564, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1475647589}
     - target: {fileID: 8143634538116363564, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
+      propertyPath: nextButton
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8143634538116363564, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
       propertyPath: stateMachine
       value: 
       objectReference: {fileID: 1475647600}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1149619522731318378, guid: 0b698f115f02a8d4fa6a3de8f78e3213, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

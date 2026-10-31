@@ -8,10 +8,11 @@ public class DialogueLinker : MonoBehaviour
     public DialogueSO dialogueSO; // to give the right Dialogue 
     public void TalkButton()
     {
-        Debug.Log("bouton clicked");
+        Debug.Log("talkbouton clicked");
         talk = PlayerStateMachine.PlayerStates.Talk;
         stateMachine.SwitchState(talk);
         DialogueManager.Instance.StartDialogue(dialogueSO);
+        
     }
 
 }

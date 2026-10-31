@@ -5,6 +5,7 @@ public class TalkableNPC : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject talkButton;
+    [SerializeField] private GameObject nextButton;
 
     void Start()
     {
