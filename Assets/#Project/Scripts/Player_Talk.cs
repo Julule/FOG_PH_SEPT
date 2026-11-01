@@ -14,13 +14,10 @@ public class Player_Talk : MonoBehaviour
     void Update()
     {
         Freeze(); // Opti : maybe a better way would be to use OnEnable and OnDisable to activate playerMovement
-        // button.onClick.AddListener(() => DialogueManager.Instance.StartDialogue(dialogueSO));
     }
 
-
-    void Freeze()
+    protected void Freeze()
     {
-        // if (playerMovement.gameObject == true)
         playerMovement.enabled = false;
     }
 }
