@@ -17,14 +17,15 @@ public class JournalManager : MonoBehaviour
         
     }
 
-    void PinNewClue()
-    {
-        stateMachine.SwitchState(journal);
-    }
-
     public void CloseJournal()
     {
         gameObject.SetActive(false);
         stateMachine.SwitchState(walk);
+    }
+
+    public void OpenJournal()
+    {
+        gameObject.SetActive(true);
+        stateMachine.SwitchState(journal);
     }
 }
