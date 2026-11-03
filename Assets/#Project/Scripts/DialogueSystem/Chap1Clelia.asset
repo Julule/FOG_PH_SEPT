@@ -14,8 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
   lines:
   - speaker: {fileID: 11400000, guid: 0ac9cd38d430efc46bc9e72f02bd7c8e, type: 2}
-    text: Question by Adele
+    text: "Bonjour, vous travaillez pour la compagnie ? J'\xE9ssaie de comprendre
+      ce probl\xE8mle de pilotage.."
   - speaker: {fileID: 11400000, guid: 7da7494417baac74791d4438af1213d0, type: 2}
-    text: "Answer by Cl\xE9lia"
-  rightDialogueClue: Cet indice annonce la bonne piste
-  fakeDialogueClue: Cet indice annonce la fausse piste
+    text: "Salut, non, je suis \xE0 bord comme passag\xE8re. Qu'est-ce que tu sais
+      ?"
+  options:
+  - optionType: 1
+    optionText: 'Pas grand chose, mais je pense que le moteur n''est pas la seule
+      piste.. '
+    nextDialogue: {fileID: 11400000, guid: 5ff51a87d7c66e044ac84b2d8e760eb1, type: 2}
+    clue: "Cl\xE9lia \xE0 l'air confiante, ce n'est pas un piratage."
+  - optionType: 0
+    optionText: Ah, vous voyagez pour vos vacances ?
+    nextDialogue: {fileID: 11400000, guid: c61d63adee36f5b4cbaa4f2cdcc48842, type: 2}
+    clue: "Cl\xE9lia b\xE9gaie sur la raison de son voyage"
