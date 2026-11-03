@@ -8,7 +8,6 @@ public class Player_Journal : Player_Talk
     void Update()
     {
         Freeze();
-        OpenJournal();
     }
 
     void OpenJournal()
