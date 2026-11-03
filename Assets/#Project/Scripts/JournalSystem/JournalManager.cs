@@ -1,25 +1,32 @@
 using UnityEngine;
 
+
 public class JournalManager : MonoBehaviour
 {
+    public static JournalManager Instance { get; private set; }
 
     [SerializeField] private PlayerStateMachine stateMachine;
     private PlayerStateMachine.PlayerStates journal;
     private PlayerStateMachine.PlayerStates walk;
     [SerializeField] private GameObject page1Content;
     [SerializeField] private GameObject page2Content;
-
-    private GameObject currentpage ;
+    [SerializeField] private Transform gridParent; // l'objet qui porte le GridLayoutGroup
+    [SerializeField] private ClueCard cardPrefab;
+    private GameObject currentpage;
     void Awake()
     {
         journal = PlayerStateMachine.PlayerStates.Journal;
         walk = PlayerStateMachine.PlayerStates.Walk;
         gameObject.SetActive(false);
         currentpage = page1Content;
-    }
-    void Update()
-    {
-        
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
     }
 
     public void CloseJournal()
@@ -50,4 +57,15 @@ public class JournalManager : MonoBehaviour
             currentpage = page1Content;
         }
     }
+
+    public void CreateCard(string clue)
+    {
+        ClueCard card = Instantiate(cardPrefab, gridParent);
+        card.FillCard(clue);
+    }
+
+
+
+
+
 }
