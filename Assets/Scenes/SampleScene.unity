@@ -3119,6 +3119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   inputActions: {fileID: -944628639613478452, guid: d49fecc3db0aece43842b8d4a4fdd451, type: 3}
   walkSpeed: 20
+  turnSpeed: 100
 --- !u!136 &1475647591
 CapsuleCollider:
   m_ObjectHideFlags: 0

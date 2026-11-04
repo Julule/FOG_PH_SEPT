@@ -14,7 +14,8 @@ public class CameraPosition : MonoBehaviour
 
     private void CameraFollowing()
     {
-       Transform objectToFollowTransform = objectToFollow.transform;
+        Transform objectToFollowTransform = objectToFollow.transform;
         transform.position = objectToFollowTransform.position + cameraDistance;
+        transform.rotation = objectToFollowTransform.rotation;
     }
 }
