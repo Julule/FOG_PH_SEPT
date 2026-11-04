@@ -17,7 +17,7 @@ public class PlayerStateMachine : MonoBehaviour
         journal = GetComponent<Player_Journal>();
         journal.enabled = false;
         SwitchState(PlayerStates.Walk);
-        Debug.Log($"le state de début est {currentState}");
+        //Debug.Log($"le state de début est {currentState}");
     }
 
     public void SwitchState(PlayerStates newState)
@@ -29,7 +29,7 @@ public class PlayerStateMachine : MonoBehaviour
             talk.enabled = true;
             walk.enabled = false;
             journal.enabled = false;
-            Debug.Log($"changement de state : {currentState} ");
+            //Debug.Log($"changement de state : {currentState} ");
         }
 
         else if (currentState == PlayerStates.Walk)
@@ -37,7 +37,7 @@ public class PlayerStateMachine : MonoBehaviour
             walk.enabled = true;
             talk.enabled = false;
             journal.enabled = false;
-            Debug.Log($"changement de state : {currentState}");
+            //Debug.Log($"changement de state : {currentState}");
         }
 
         else if (currentState == PlayerStates.Journal)
@@ -45,7 +45,7 @@ public class PlayerStateMachine : MonoBehaviour
             walk.enabled = false;
             talk.enabled = false;
             journal.enabled = true;
-            Debug.Log($"changement de state : {currentState}");
+            //Debug.Log($"changement de state : {currentState}");
         }
     }
 }

@@ -47,7 +47,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(DialogueSO dialogueSO, TalkableNPC npc)
     {
         currentNPC = npc;
-        Debug.Log("StartDialogue appelé");
+        //Debug.Log("StartDialogue appelé");
         currentDialogue = dialogueSO;
         activeDialogue = true;
         ShowDialogue();
@@ -80,6 +80,7 @@ public class DialogueManager : MonoBehaviour
                 string optionClue = thisOption.clue;
                 choiceButtons[i].GetComponentInChildren<TMP_Text>().text = thisOption.optionText;
                 choiceButtons[i].gameObject.SetActive(true);
+                choiceButtons[i].onClick.RemoveAllListeners();
                 choiceButtons[i].onClick.AddListener(() => ChooseOption(thisOption.nextDialogue, optionClue));
             }
         }
@@ -100,11 +101,11 @@ public class DialogueManager : MonoBehaviour
             string clueForCard = optionClue;
             InitializeDialogue();
             StartDialogue(followUpDialogue, currentNPC);
-            Debug.Log("Il n'y a pas/plus d'options à ce dialogue..");
+            //Debug.Log("Il n'y a pas/plus d'options à ce dialogue..");
             choiceButtons[0].GetComponentInChildren<TMP_Text>().text = "Fermer le dialogue";
             choiceButtons[0].gameObject.SetActive(true);
             choiceButtons[1].gameObject.SetActive(false);
-            currentNPC.alreadyReadDialogue = true;
+            choiceButtons[0].onClick.RemoveAllListeners();
             choiceButtons[0].onClick.AddListener(() => EndDialogue(clueForCard));
         }
         
@@ -117,11 +118,13 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue(string clueForCard)
     {
-        JournalManager.Instance.CreateCard(clueForCard);
         dialogueIndex = 0;
         activeDialogue = false;
         gameObject.SetActive(false); // désactiver le dialogueCanvas
         walk = PlayerStateMachine.PlayerStates.Walk; // Je stocke l'état "Walk" de la States enum dans walk.
         stateMachine.SwitchState(walk);
+        if (currentNPC.alreadyReadDialogue == false)
+            JournalManager.Instance.CreateCard(clueForCard);
+        currentNPC.alreadyReadDialogue = true;
     }
 }
