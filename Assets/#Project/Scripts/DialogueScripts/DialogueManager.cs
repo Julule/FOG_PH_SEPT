@@ -8,6 +8,7 @@ using System.Xml.Linq;
 // using Unity.Android.Gradle;
 using System.Runtime.ExceptionServices;
 using UnityEngine.PlayerLoop;
+using JetBrains.Annotations;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private PlayerStateMachine stateMachine;
     private PlayerStateMachine.PlayerStates walk;
+    private TalkableNPC currentNPC;
 
     private void Awake() // check wether Instance already exists at awake / or destroy.
     {
@@ -42,8 +44,9 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    public void StartDialogue(DialogueSO dialogueSO)
+    public void StartDialogue(DialogueSO dialogueSO, TalkableNPC npc)
     {
+        currentNPC = npc;
         Debug.Log("StartDialogue appelé");
         currentDialogue = dialogueSO;
         activeDialogue = true;
@@ -74,9 +77,10 @@ public class DialogueManager : MonoBehaviour
             for (int i = 0; i < currentDialogue.options.Length; i++) // Pour chaque options, la right et la false 
             {
                 DialogueOption thisOption = currentDialogue.options[i]; // stocker l'option en question (type, ligne, nextdialogue, clue)
+                string optionClue = thisOption.clue;
                 choiceButtons[i].GetComponentInChildren<TMP_Text>().text = thisOption.optionText;
                 choiceButtons[i].gameObject.SetActive(true);
-                choiceButtons[i].onClick.AddListener(() => ChooseOption(thisOption.nextDialogue));
+                choiceButtons[i].onClick.AddListener(() => ChooseOption(thisOption.nextDialogue, optionClue));
             }
         }
         else // il n'y a pas d'options. Ceci n'est utilisé qu'au deuxième passage, une fois qu'une option a été cliquée
@@ -85,7 +89,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void ChooseOption(DialogueSO followUpDialogue)
+    private void ChooseOption(DialogueSO followUpDialogue, string optionClue)
     {
         if(followUpDialogue == null) // il n'y a pas de dialogueSO dans cette option de dialogue
         {
@@ -93,16 +97,15 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
+            string clueForCard = optionClue;
             InitializeDialogue();
-            StartDialogue(followUpDialogue);
+            StartDialogue(followUpDialogue, currentNPC);
             Debug.Log("Il n'y a pas/plus d'options à ce dialogue..");
             choiceButtons[0].GetComponentInChildren<TMP_Text>().text = "Fermer le dialogue";
             choiceButtons[0].gameObject.SetActive(true);
             choiceButtons[1].gameObject.SetActive(false);
-
-            choiceButtons[0].onClick.AddListener(EndDialogue);
-            // TO DO : 
-            // OpenJournal(); // Pour y répertorier l'indice découvert
+            currentNPC.alreadyReadDialogue = true;
+            choiceButtons[0].onClick.AddListener(() => EndDialogue(clueForCard));
         }
         
     }
@@ -112,8 +115,9 @@ public class DialogueManager : MonoBehaviour
         dialogueIndex = 0;
     }
 
-    private void EndDialogue()
+    private void EndDialogue(string clueForCard)
     {
+        JournalManager.Instance.CreateCard(clueForCard);
         dialogueIndex = 0;
         activeDialogue = false;
         gameObject.SetActive(false); // désactiver le dialogueCanvas

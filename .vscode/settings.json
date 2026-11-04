@@ -67,6 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "FOG_PH_SEPT.slnx",
+    "dotnet.defaultSolution": "H-FOG_PH_SEPT.slnx",
     "dotnet.enableWorkspaceBasedDevelopment": false
 }

@@ -5,7 +5,9 @@ public class TalkableNPC : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject talkButton;
-    [SerializeField] private GameObject nextButton;
+    // [SerializeField] private GameObject nextButton; // pour prévoir un bouton d'avancée dans le dialogue
+    
+    public bool alreadyReadDialogue = false;
 
     void Start()
     {
