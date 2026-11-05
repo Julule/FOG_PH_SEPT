@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70f99bdbd3c28b544b222382a6078de6, type: 3}
+  m_Name: Chap1PruneRight
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
+  lines:
+  - speaker: {fileID: 11400000, guid: fa46dc0c299928f409df11c3c498c33d, type: 2}
+    text: "C'est cette personne qui me d\xE9visage... Son visage me dit quelque chose,
+      mais vraiment impossible de me souvenir.  "
+  options: []
