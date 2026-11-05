@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 9.144839, y: 2.7832117}
+  m_AnchoredPosition: {x: 10, y: 2.94}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8606875156329074673
@@ -177,8 +177,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279506175
-  m_fontColor: {r: 1, g: 0.08018869, b: 0.08018869, a: 1}
+    rgba: 4288345308
+  m_fontColor: {r: 0.8627451, g: 0.95686275, b: 0.6039216, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -277,8 +277,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -46.29688, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -57.5, y: 0}
+  m_SizeDelta: {x: 73.596, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3149544279565808099
 CanvasRenderer:
@@ -386,7 +386,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285d49d200505f14dbac793766f937ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueLinker
+  stateMachine: {fileID: 0}
   dialogueSO: {fileID: 11400000, guid: a9a9a3f3ef423984c9c9903d23b442d1, type: 2}
+  stopdialogueSO: {fileID: 11400000, guid: 10869ca54f9473744b53e7d7566bfa1f, type: 2}
 --- !u!1001 &2130975318630208698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -461,19 +463,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4996866480368373714, guid: 443b43655eea2ff4ab115f1bc3a7ccbe, type: 3}
       propertyPath: m_margin.w
-      value: 1.0044196
+      value: 0.80268836
       objectReference: {fileID: 0}
     - target: {fileID: 4996866480368373714, guid: 443b43655eea2ff4ab115f1bc3a7ccbe, type: 3}
       propertyPath: m_margin.x
       value: 0.0000019074412
       objectReference: {fileID: 0}
     - target: {fileID: 4996866480368373714, guid: 443b43655eea2ff4ab115f1bc3a7ccbe, type: 3}
+      propertyPath: m_margin.y
+      value: 0.6315907
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996866480368373714, guid: 443b43655eea2ff4ab115f1bc3a7ccbe, type: 3}
       propertyPath: m_margin.z
-      value: 9.217009
+      value: 0.048092365
       objectReference: {fileID: 0}
     - target: {fileID: 4996866480368373714, guid: 443b43655eea2ff4ab115f1bc3a7ccbe, type: 3}
       propertyPath: m_fontColor.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5665502940202443987, guid: 443b43655eea2ff4ab115f1bc3a7ccbe, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 7.8536
+      objectReference: {fileID: 0}
+    - target: {fileID: 5665502940202443987, guid: 443b43655eea2ff4ab115f1bc3a7ccbe, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 4.9263
+      objectReference: {fileID: 0}
+    - target: {fileID: 5665502940202443987, guid: 443b43655eea2ff4ab115f1bc3a7ccbe, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.1314
+      objectReference: {fileID: 0}
+    - target: {fileID: 5665502940202443987, guid: 443b43655eea2ff4ab115f1bc3a7ccbe, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6.7
       objectReference: {fileID: 0}
     - target: {fileID: 7824651083930870166, guid: 443b43655eea2ff4ab115f1bc3a7ccbe, type: 3}
       propertyPath: talkButton
@@ -483,7 +505,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1326022148729669840, guid: 443b43655eea2ff4ab115f1bc3a7ccbe, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5665502940202443987, guid: 443b43655eea2ff4ab115f1bc3a7ccbe, type: 3}
