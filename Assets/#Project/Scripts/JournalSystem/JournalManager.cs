@@ -37,12 +37,11 @@ public class JournalManager : MonoBehaviour
 
     public void OpenJournal()
     {
-        gameObject.SetActive(true);
         stateMachine.SwitchState(journal);
         TurnPage();
     }
 
-    public void TurnPage()
+    public void TurnPage() // Afficher le contenu tantôt d'une page, tantôt de l'autre
     {
         if (currentpage == page1Content)
         {

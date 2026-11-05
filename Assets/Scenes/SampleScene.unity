@@ -537,15 +537,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ea6cd6885e169a4595c8f787b32a8cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5316305
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ea6cd6885e169a4595c8f787b32a8cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.960499
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ea6cd6885e169a4595c8f787b32a8cb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.2493877
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ea6cd6885e169a4595c8f787b32a8cb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3340,6 +3340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Journal
   journalCanvas: {fileID: 334760453}
+  openJournalButton: {fileID: 1362263683}
 --- !u!1 &1557093750
 GameObject:
   m_ObjectHideFlags: 0
@@ -4227,7 +4228,7 @@ Transform:
   m_GameObject: {fileID: 2016636233}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 8.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4265,7 +4266,7 @@ Transform:
   m_GameObject: {fileID: 2034321344}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -9, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.01, y: 1, z: 13.22}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5074,8 +5075,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    - target: {fileID: 5492458997451863903, guid: a69a67aeafb554a43a9b5defb50ca7f1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7858b82727f48fa47bcb71e0dc37a813, type: 3}
+    m_RemovedComponents:
+    - {fileID: 1622578127130809644, guid: a69a67aeafb554a43a9b5defb50ca7f1, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3577371338751010641, guid: a69a67aeafb554a43a9b5defb50ca7f1, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a69a67aeafb554a43a9b5defb50ca7f1, type: 3}

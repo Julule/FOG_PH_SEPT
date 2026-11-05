@@ -4,18 +4,21 @@ public class Player_Walk : MonoBehaviour
 {
     
     private PlayerMovement playerMovement;
+    private Player_Journal player_Journal;
 
     void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
     }
-    void Update()
+
+    void OnEnable()
     {
         UnFreeze();
+        player_Journal = GetComponent<Player_Journal>();
+        player_Journal.openJournalButton.SetActive(true);
     }
     void UnFreeze()
     {
-        // if (playerMovement.gameObject == false)
         playerMovement.enabled = true;
     }
 }

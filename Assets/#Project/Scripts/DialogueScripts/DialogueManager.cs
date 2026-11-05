@@ -47,7 +47,6 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(DialogueSO dialogueSO, TalkableNPC npc)
     {
         currentNPC = npc;
-        //Debug.Log("StartDialogue appelé");
         currentDialogue = dialogueSO;
         activeDialogue = true;
         ShowDialogue();
@@ -74,6 +73,7 @@ public class DialogueManager : MonoBehaviour
     {
         if(currentDialogue.options.Length > 0) // si y'a des options ?
         {
+            Debug.Log($"nb d'options de ce dial : {currentDialogue.options.Length}");
             for (int i = 0; i < currentDialogue.options.Length; i++) // Pour chaque options, la right et la false 
             {
                 DialogueOption thisOption = currentDialogue.options[i]; // stocker l'option en question (type, ligne, nextdialogue, clue)
@@ -84,7 +84,7 @@ public class DialogueManager : MonoBehaviour
                 choiceButtons[i].onClick.AddListener(() => ChooseOption(thisOption.nextDialogue, optionClue));
             }
         }
-        else // il n'y a pas d'options. Ceci n'est utilisé qu'au deuxième passage, une fois qu'une option a été cliquée
+        else // il n'y a pas d'options. 
         {
             //Rien 
         }
@@ -102,11 +102,14 @@ public class DialogueManager : MonoBehaviour
             InitializeDialogue();
             StartDialogue(followUpDialogue, currentNPC);
             //Debug.Log("Il n'y a pas/plus d'options à ce dialogue..");
-            choiceButtons[0].GetComponentInChildren<TMP_Text>().text = "Fermer le dialogue";
-            choiceButtons[0].gameObject.SetActive(true);
-            choiceButtons[1].gameObject.SetActive(false);
-            choiceButtons[0].onClick.RemoveAllListeners();
-            choiceButtons[0].onClick.AddListener(() => EndDialogue(clueForCard));
+            if (currentNPC.alreadyReadDialogue == false)
+            {
+                choiceButtons[0].GetComponentInChildren<TMP_Text>().text = "Fermer le dialogue";
+                choiceButtons[0].gameObject.SetActive(true);
+                choiceButtons[1].gameObject.SetActive(false);
+                choiceButtons[0].onClick.RemoveAllListeners();
+                choiceButtons[0].onClick.AddListener(() => EndDialogue(clueForCard));
+            }
         }
         
     }
@@ -118,6 +121,7 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue(string clueForCard)
     {
+        choiceButtons[0].gameObject.SetActive(false);
         dialogueIndex = 0;
         activeDialogue = false;
         gameObject.SetActive(false); // désactiver le dialogueCanvas
