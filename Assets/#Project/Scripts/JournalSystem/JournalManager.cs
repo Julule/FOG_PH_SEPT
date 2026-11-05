@@ -63,8 +63,4 @@ public class JournalManager : MonoBehaviour
         card.FillCard(clue);
     }
 
-
-
-
-
 }

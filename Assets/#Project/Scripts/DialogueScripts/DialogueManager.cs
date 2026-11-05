@@ -121,7 +121,6 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue(string clueForCard)
     {
-        choiceButtons[0].gameObject.SetActive(false);
         dialogueIndex = 0;
         activeDialogue = false;
         gameObject.SetActive(false); // désactiver le dialogueCanvas
@@ -130,5 +129,6 @@ public class DialogueManager : MonoBehaviour
         if (currentNPC.alreadyReadDialogue == false)
             JournalManager.Instance.CreateCard(clueForCard);
         currentNPC.alreadyReadDialogue = true;
+        choiceButtons[0].gameObject.SetActive(false);
     }
 }
