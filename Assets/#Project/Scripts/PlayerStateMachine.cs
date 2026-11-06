@@ -24,37 +24,29 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void SwitchState(PlayerStates newState)
     {
-        currentState = newState; 
+        currentState = newState;
+        talk.enabled = true;
+        walk.enabled = false;
+        journal.enabled = false;
+        accusation.enabled = false;
 
         if (currentState == PlayerStates.Talk)
         {
             talk.enabled = true;
-            walk.enabled = false;
-            journal.enabled = false;
-            accusation.enabled = false;
         }
 
         else if (currentState == PlayerStates.Walk)
         {
             walk.enabled = true;
-            talk.enabled = false;
-            journal.enabled = false;
-            accusation.enabled = false;
         }
 
         else if (currentState == PlayerStates.Journal)
         {
-            walk.enabled = false;
-            talk.enabled = false;
             journal.enabled = true;
-            accusation.enabled = false;
         }
 
         else if (currentState == PlayerStates.Accusation)
         {
-            walk.enabled = false;
-            talk.enabled = false;
-            journal.enabled = true;
             accusation.enabled = true;
         }
     }

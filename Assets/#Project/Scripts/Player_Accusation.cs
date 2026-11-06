@@ -16,11 +16,11 @@ public class Player_Accusation : MonoBehaviour
 
         selected.Clear();
 
-        foreach (var card in playCards) // activer le highlight onclick
+        foreach (var card in playCards) // désactiver les highlights
         {
             var pCard = card; // nécessaire pour l'équivalence
             pCard.HighLight(false);
-            pCard.GetComponent<Button>().onClick.AddListener(() => Toggle(pCard));
+            pCard.GetComponent<Button>().onClick.AddListener(() => SelectCard(pCard));
         }
 
         submitButton.onClick.AddListener(Submit); // Préparer un evenement au clic sur le bouton
@@ -36,18 +36,21 @@ public class Player_Accusation : MonoBehaviour
         }
     }
 
-    void Toggle(PlayCard playCard)
+    void SelectCard(PlayCard playCard)
     {
-        if (selected.Contains(playCard))
+        if (selected.Contains(playCard)) // 
         {
             selected.Remove(playCard);
             playCard.HighLight(false);
         }
         else if (selected.Count < requiredCount)
         {
-            Debug.Log("Maximum 3 cartes !");
             selected.Add(playCard);
             playCard.HighLight(true);
+        }
+        else if (selected.Count > requiredCount)
+        {
+            Debug.Log("Maximum 3 cartes !");
         }
         RefreshSubmit();
     }
