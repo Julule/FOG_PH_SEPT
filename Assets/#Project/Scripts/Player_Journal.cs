@@ -4,9 +4,9 @@ using UnityEngine;
 public class Player_Journal : Player_Talk
 {
     [SerializeField] private GameObject journalCanvas;
-    [SerializeField] public GameObject openJournalButton;
+    // [SerializeField] public GameObject openJournalButton;
 
-    void Update()
+    void OnEnable()
     {
         Freeze();
         OpenJournal();

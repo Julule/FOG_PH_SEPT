@@ -4,8 +4,7 @@ public class Player_Talk : MonoBehaviour
 {
 
     private PlayerMovement playerMovement;
-    private Player_Journal player_Journal;
-
+    [SerializeField] public GameObject openJournalButton;
 
     void Awake()
     {
@@ -13,9 +12,8 @@ public class Player_Talk : MonoBehaviour
     }
     void OnEnable()
     {
-        Freeze(); // Opti : maybe a better way would be to use OnEnable and OnDisable to activate playerMovement
-        player_Journal = GetComponent<Player_Journal>();
-        player_Journal.openJournalButton.SetActive(true);
+        Freeze(); 
+        openJournalButton.gameObject.SetActive(false);
     }
 
     protected void Freeze()

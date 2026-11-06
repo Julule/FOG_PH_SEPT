@@ -8,6 +8,7 @@ public class JournalManager : MonoBehaviour
     [SerializeField] private PlayerStateMachine stateMachine;
     private PlayerStateMachine.PlayerStates journal;
     private PlayerStateMachine.PlayerStates walk;
+    private PlayerStateMachine.PlayerStates accusation;
     [SerializeField] private GameObject page1Content;
     [SerializeField] private GameObject page2Content;
     [SerializeField] private Transform gridParent; // l'objet qui porte le GridLayoutGroup
@@ -17,6 +18,8 @@ public class JournalManager : MonoBehaviour
     {
         journal = PlayerStateMachine.PlayerStates.Journal;
         walk = PlayerStateMachine.PlayerStates.Walk;
+        accusation = PlayerStateMachine.PlayerStates.Accusation;
+        
         gameObject.SetActive(false);
         currentpage = page1Content;
 
@@ -61,6 +64,11 @@ public class JournalManager : MonoBehaviour
     {
         ClueCard card = Instantiate(cardPrefab, gridParent);
         card.FillCard(clue);
+    }
+
+    public void AccusationTrigger()
+    {
+        stateMachine.SwitchState(accusation);
     }
 
 }

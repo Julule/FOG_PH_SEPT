@@ -2,20 +2,22 @@ using UnityEngine;
 
 public class PlayerStateMachine : MonoBehaviour
 {
-    public enum PlayerStates {Walk, Talk, Journal};
+    public enum PlayerStates {Walk, Talk, Journal, Accusation};
     private PlayerStates currentState;
-    private Player_Walk walk;
-    private Player_Talk talk;
-    private Player_Journal journal;
+    private Player_Walk walk => GetComponent<Player_Walk>();
+    private Player_Talk talk => GetComponent<Player_Talk>();
+    private Player_Journal journal => GetComponent<Player_Journal>();
+    private Player_Accusation accusation => GetComponent<Player_Accusation>();
 
+    void Awake()
+    {
+        talk.enabled = false;
+        walk.enabled = false;
+        journal.enabled = false;
+        accusation.enabled = false;
+    }
     void Start()
     {
-        talk = GetComponent<Player_Talk>();
-        talk.enabled = false;
-        walk = GetComponent<Player_Walk>();
-        walk.enabled = false;
-        journal = GetComponent<Player_Journal>();
-        journal.enabled = false;
         SwitchState(PlayerStates.Walk);
         //Debug.Log($"le state de début est {currentState}");
     }
@@ -29,7 +31,7 @@ public class PlayerStateMachine : MonoBehaviour
             talk.enabled = true;
             walk.enabled = false;
             journal.enabled = false;
-            //Debug.Log($"changement de state : {currentState} ");
+            accusation.enabled = false;
         }
 
         else if (currentState == PlayerStates.Walk)
@@ -37,7 +39,7 @@ public class PlayerStateMachine : MonoBehaviour
             walk.enabled = true;
             talk.enabled = false;
             journal.enabled = false;
-            //Debug.Log($"changement de state : {currentState}");
+            accusation.enabled = false;
         }
 
         else if (currentState == PlayerStates.Journal)
@@ -45,7 +47,15 @@ public class PlayerStateMachine : MonoBehaviour
             walk.enabled = false;
             talk.enabled = false;
             journal.enabled = true;
-            //Debug.Log($"changement de state : {currentState}");
+            accusation.enabled = false;
+        }
+
+        else if (currentState == PlayerStates.Accusation)
+        {
+            walk.enabled = false;
+            talk.enabled = false;
+            journal.enabled = true;
+            accusation.enabled = true;
         }
     }
 }

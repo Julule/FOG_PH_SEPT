@@ -4,7 +4,7 @@ public class Player_Walk : MonoBehaviour
 {
     
     private PlayerMovement playerMovement;
-    private Player_Journal player_Journal;
+    private Player_Talk player_Talk;
 
     void Awake()
     {
@@ -14,8 +14,8 @@ public class Player_Walk : MonoBehaviour
     void OnEnable()
     {
         UnFreeze();
-        player_Journal = GetComponent<Player_Journal>();
-        player_Journal.openJournalButton.SetActive(true);
+        player_Talk = GetComponent<Player_Journal>();
+        player_Talk.openJournalButton.SetActive(true);
     }
     void UnFreeze()
     {
