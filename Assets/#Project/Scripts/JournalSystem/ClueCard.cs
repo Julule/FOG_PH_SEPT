@@ -5,6 +5,7 @@ public class ClueCard : MonoBehaviour
 {
     private TMP_Text clueText;
 
+
     public void FillCard(string clue)
     {
         //clueText.text = data.cardName;
