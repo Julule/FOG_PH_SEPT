@@ -27,6 +27,7 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private PlayerStateMachine stateMachine;
     private PlayerStateMachine.PlayerStates walk;
+    private PlayerStateMachine.PlayerStates journal;
     private TalkableNPC currentNPC;
 
     private void Awake() // check wether Instance already exists at awake / or destroy.
@@ -124,11 +125,12 @@ public class DialogueManager : MonoBehaviour
         dialogueIndex = 0;
         activeDialogue = false;
         gameObject.SetActive(false); // désactiver le dialogueCanvas
-        walk = PlayerStateMachine.PlayerStates.Walk; // Je stocke l'état "Walk" de la States enum dans walk.
-        stateMachine.SwitchState(walk);
         if (currentNPC.alreadyReadDialogue == false)
             JournalManager.Instance.CreateCard(clueForCard);
         currentNPC.alreadyReadDialogue = true;
         choiceButtons[0].gameObject.SetActive(false);
+
+        journal = PlayerStateMachine.PlayerStates.Journal; // Je stocke l'état "Walk" de la States enum dans walk.
+        stateMachine.SwitchState(journal);
     }
 }
