@@ -1,21 +1,21 @@
 using System;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class CameraPosition : MonoBehaviour
+public class CameraPosition : PlayerMovement
 {
-    [SerializeField] private GameObject objectToFollow;
-    
-    [SerializeField] private Vector3 cameraDistance;
+
     void Update()
     {
-        CameraFollowing();
+        CameraRot();
     }
-
-    private void CameraFollowing()
+    private void CameraRot()
     {
-        Transform objectToFollowTransform = objectToFollow.transform;
-        transform.position = objectToFollowTransform.position + cameraDistance;
-        transform.rotation = objectToFollowTransform.rotation;
+        // ici juste le up and down rotation
+        Vector2 rotateAmount = cameraRotation.ReadValue<Vector2>();
+        // rotate = Mathf.Clamp(rotate - rotateAmount.y * cameraSpeed * Time.deltaTime, -89f, 89f);
+        verticalRotate = verticalRotate - rotateAmount.y * cameraSpeed * Time.deltaTime;
+        transform.localRotation = Quaternion.Euler(verticalRotate, 0f, 0f); // On utilise Euler pour multiplier rotate
     }
 }
