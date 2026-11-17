@@ -12,19 +12,15 @@ using JetBrains.Annotations;
 
 public class DialogueManager : MonoBehaviour
 {
-
-    public static DialogueManager Instance; // dispo pour les states
-
+    public static DialogueManager Instance; 
     [Header("UI References")]
     public Image portrait;
     public TMP_Text actorName;
     public TMP_Text dialogueText;
     public bool activeDialogue;
-
     private DialogueSO currentDialogue;
     public Button[] choiceButtons;
     private int dialogueIndex = 0;
-
     [SerializeField] private PlayerStateMachine stateMachine;
     private PlayerStateMachine.PlayerStates walk;
     private PlayerStateMachine.PlayerStates journal;
@@ -60,8 +56,10 @@ public class DialogueManager : MonoBehaviour
             gameObject.SetActive(true); // activer le dialogueCanvas (c'est déjà fait au deuxième passage)
             DialogueLine line = currentDialogue.lines[dialogueIndex];
             portrait.sprite = line.speaker.portrait; 
-            actorName.text = line.speaker.actorName;
-            dialogueText.text = line.text;
+            // actorName.text = line.speaker.actorName
+            TypeWriterMachine.Instance.Show(line.speaker.actorName, actorName);
+            TypeWriterMachine.Instance.Show(line.text, dialogueText);
+            // dialogueText.text = line.text;
             dialogueIndex++;
         }
         else
