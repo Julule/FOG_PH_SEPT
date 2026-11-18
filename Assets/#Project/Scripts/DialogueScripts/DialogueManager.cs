@@ -22,9 +22,10 @@ public class DialogueManager : MonoBehaviour
     public Button[] choiceButtons;
     private int dialogueIndex = 0;
     [SerializeField] private PlayerStateMachine stateMachine;
-    private PlayerStateMachine.PlayerStates walk;
     private PlayerStateMachine.PlayerStates journal;
     private TalkableNPC currentNPC;
+
+    public Button closeDialogueCanvas;
 
     private void Awake() // check wether Instance already exists at awake / or destroy.
     {
@@ -43,6 +44,10 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(DialogueSO dialogueSO, TalkableNPC npc)
     {
+        if (npc.alreadyReadDialogue == false)
+        {
+            closeDialogueCanvas.gameObject.SetActive(false);
+        }
         currentNPC = npc;
         currentDialogue = dialogueSO;
         activeDialogue = true;
@@ -100,17 +105,15 @@ public class DialogueManager : MonoBehaviour
             string clueForCard = optionClue;
             InitializeDialogue();
             StartDialogue(followUpDialogue, currentNPC);
-            //Debug.Log("Il n'y a pas/plus d'options à ce dialogue..");
             if (currentNPC.alreadyReadDialogue == false)
             {
-                choiceButtons[0].GetComponentInChildren<TMP_Text>().text = "Fermer le dialogue";
-                choiceButtons[0].gameObject.SetActive(true);
+                choiceButtons[0].gameObject.SetActive(false);
                 choiceButtons[1].gameObject.SetActive(false);
                 choiceButtons[0].onClick.RemoveAllListeners();
-                choiceButtons[0].onClick.AddListener(() => EndDialogue(clueForCard));
+                closeDialogueCanvas.gameObject.SetActive(true);
+                closeDialogueCanvas.onClick.AddListener(() => EndDialogue(clueForCard));
             }
         }
-        
     }
 
     private void InitializeDialogue()
@@ -124,11 +127,11 @@ public class DialogueManager : MonoBehaviour
         activeDialogue = false;
         gameObject.SetActive(false); // désactiver le dialogueCanvas
         if (currentNPC.alreadyReadDialogue == false)
+        {
             JournalManager.Instance.CreateCard(clueForCard);
+            journal = PlayerStateMachine.PlayerStates.Journal;
+            stateMachine.SwitchState(journal);
+        }
         currentNPC.alreadyReadDialogue = true;
-        choiceButtons[0].gameObject.SetActive(false);
-
-        journal = PlayerStateMachine.PlayerStates.Journal; // Je stocke l'état "Walk" de la States enum dans walk.
-        stateMachine.SwitchState(journal);
     }
 }

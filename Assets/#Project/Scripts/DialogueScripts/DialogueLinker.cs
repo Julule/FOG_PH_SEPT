@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class DialogueLinker : MonoBehaviour
@@ -9,15 +10,21 @@ public class DialogueLinker : MonoBehaviour
     public DialogueSO stopdialogueSO; // to give the right Dialogue
     private TalkableNPC talkableNPC; // pour stocker le NPC concerné et le désactiver après le dialogue
 
+    public TMP_Text talkButtonTMP;
+    public string talkButtonText;
+
     private void Awake()
     {
         talkableNPC = GetComponentInParent<TalkableNPC>();
     }
 
-    public void TalkButton()
+    public void TalkButton(TMP_Text talkButtonTMP)
     {
+
+        talkButtonTMP = GetComponentInChildren<TMP_Text>();
         if(talkableNPC.alreadyReadDialogue == false)
         {
+            talkButtonTMP.text = ">>";
             talk = PlayerStateMachine.PlayerStates.Talk;
             stateMachine.SwitchState(talk);
             DialogueManager.Instance.StartDialogue(dialogueSO, talkableNPC);
@@ -25,6 +32,7 @@ public class DialogueLinker : MonoBehaviour
 
         else if(talkableNPC.alreadyReadDialogue == true)
         {
+            talkButtonTMP.text = ">>";
             talk = PlayerStateMachine.PlayerStates.Talk;
             stateMachine.SwitchState(talk);
             DialogueManager.Instance.StartDialogue(stopdialogueSO, talkableNPC);

@@ -25,7 +25,7 @@ public class PlayerStateMachine : MonoBehaviour
     public void SwitchState(PlayerStates newState)
     {
         currentState = newState;
-        talk.enabled = true;
+        talk.enabled = false;
         walk.enabled = false;
         journal.enabled = false;
         accusation.enabled = false;

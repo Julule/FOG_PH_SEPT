@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class Player_Talk : MonoBehaviour
@@ -5,6 +6,7 @@ public class Player_Talk : MonoBehaviour
 
     private PlayerMovement playerMovement;
     [SerializeField] public GameObject openJournalButton;
+
 
     void Awake()
     {
