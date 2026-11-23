@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!243 &-8456904807580034788
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpaceMusic
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: e2df391c4b19faa42ad933bac15bd61e
+  m_Children: []
+  m_Volume: 1bc7b1a0850765845a863490757249bf
+  m_Pitch: 06bb667f3879130478251f939f9a694c
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -607872033588097323}
+  - {fileID: -2723106343064377390}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!245 &-5316823412869292069
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: "R\xE9glage - Local"
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 7a815b566bd415c48af19953dfb887f0
+  m_FloatValues: {}
+  m_TransitionOverrides: {}
+--- !u!244 &-2723106343064377390
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 4fc51bcf7da243746bc88d58678f6a10
+  m_EffectName: Lowpass
+  m_MixLevel: bb4793ba74618d84b84cb686c60753d3
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: 266b64840baf47f4b835be3db2e2c794
+  - m_ParameterName: Resonance
+    m_GUID: 7e2b387ee1de799489456948b87a6dff
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &-607872033588097323
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: ea111d2c92e52a54e98a2f2893c0b15f
+  m_EffectName: Attenuation
+  m_MixLevel: fda89ee4660c5774a997e3a64ee22f6a
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!241 &24100000
+AudioMixerController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NewAudioMixer
+  m_OutputGroup: {fileID: 0}
+  m_MasterGroup: {fileID: 24300002}
+  m_Snapshots:
+  - {fileID: 2157991007008838755}
+  - {fileID: 24500006}
+  - {fileID: -5316823412869292069}
+  m_StartSnapshot: {fileID: 24500006}
+  m_SuspendThreshold: -80
+  m_EnableSuspend: 1
+  m_UpdateMode: 0
+  m_ExposedParameters: []
+  m_AudioMixerGroupViews:
+  - guids:
+    - c99d5c78e20512d40838340a61926b9c
+    - e2df391c4b19faa42ad933bac15bd61e
+    name: View
+  m_CurrentViewIndex: 0
+  m_TargetSnapshot: {fileID: 24500006}
+--- !u!243 &24300002
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Master
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: c99d5c78e20512d40838340a61926b9c
+  m_Children:
+  - {fileID: -8456904807580034788}
+  m_Volume: b478d02533e6ba14d871ff14edf373e9
+  m_Pitch: d00f43044fb957e41b3a2c6f35afef09
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 24400004}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &24400004
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: b72a44e0acbbb21468d2b1741827bd04
+  m_EffectName: Attenuation
+  m_MixLevel: a8dcd67fe1f09494ca08314e7f588fd9
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &24500006
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: "R\xE9glage - Moteur"
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: f00cf3a1bafe1854d9d56a9205ff568d
+  m_FloatValues:
+    266b64840baf47f4b835be3db2e2c794: 4270
+  m_TransitionOverrides: {}
+--- !u!245 &2157991007008838755
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: "R\xE9glage - Wagon"
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: cb8d972da389ffb4ab9c8f0831a4937a
+  m_FloatValues: {}
+  m_TransitionOverrides: {}

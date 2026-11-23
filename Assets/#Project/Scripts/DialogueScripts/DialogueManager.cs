@@ -22,6 +22,7 @@ public class DialogueManager : MonoBehaviour
     public Button[] choiceButtons;
     private int dialogueIndex = 0;
     [SerializeField] private PlayerStateMachine stateMachine;
+    [SerializeField] private GameObject cluesPage;
     private PlayerStateMachine.PlayerStates journal;
     private TalkableNPC currentNPC;
 
@@ -111,6 +112,7 @@ public class DialogueManager : MonoBehaviour
                 choiceButtons[1].gameObject.SetActive(false);
                 choiceButtons[0].onClick.RemoveAllListeners();
                 closeDialogueCanvas.gameObject.SetActive(true);
+                closeDialogueCanvas.onClick.RemoveAllListeners();
                 closeDialogueCanvas.onClick.AddListener(() => EndDialogue(clueForCard));
             }
         }
@@ -123,14 +125,14 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue(string clueForCard)
     {
+        Debug.Log($"endialogue : {clueForCard}");
         dialogueIndex = 0;
         activeDialogue = false;
         gameObject.SetActive(false); // désactiver le dialogueCanvas
         if (currentNPC.alreadyReadDialogue == false)
         {
             JournalManager.Instance.CreateCard(clueForCard);
-            journal = PlayerStateMachine.PlayerStates.Journal;
-            stateMachine.SwitchState(journal);
+            JournalManager.Instance.OpenJournal(cluesPage);
         }
         currentNPC.alreadyReadDialogue = true;
     }

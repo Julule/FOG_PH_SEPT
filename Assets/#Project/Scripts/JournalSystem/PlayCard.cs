@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,10 @@ public class PlayCard : MonoBehaviour
     [SerializeField] public bool rightAnswer;
     [SerializeField] GameObject highlight; // un enfant (cadre, halo...) activé quand sélectionné
 
+    void Awake()
+    {
+        highlight.SetActive(false);
+    }
     public bool IsSelected { get; private set; }
 
     public void HighLight(bool value)

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -11,18 +12,12 @@ public class JournalManager : MonoBehaviour
     private PlayerStateMachine.PlayerStates accusation;
     [SerializeField] private GameObject page1Content;
     [SerializeField] private GameObject page2Content;
+    List<GameObject> journalPages = new();
     [SerializeField] private Transform gridParent; // l'objet qui porte le GridLayoutGroup
     [SerializeField] private ClueCard cardPrefab;
     private GameObject currentpage;
     void Awake()
     {
-        journal = PlayerStateMachine.PlayerStates.Journal;
-        walk = PlayerStateMachine.PlayerStates.Walk;
-        accusation = PlayerStateMachine.PlayerStates.Accusation;
-
-        gameObject.SetActive(false);
-        currentpage = page1Content;
-
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -30,6 +25,35 @@ public class JournalManager : MonoBehaviour
         }
 
         Instance = this;
+
+        journalPages.Add(page1Content);
+        journalPages.Add(page2Content);
+
+        journal = PlayerStateMachine.PlayerStates.Journal;
+        walk = PlayerStateMachine.PlayerStates.Walk;
+        accusation = PlayerStateMachine.PlayerStates.Accusation;
+
+        gameObject.SetActive(false);
+        //currentpage = page1Content;
+        foreach(GameObject page in journalPages)
+        {
+            page.SetActive(false);
+        }
+    }
+    public void OpenJournal(GameObject targetPage) // méthode propre au manager, le state en comporte une autre.
+    {
+        stateMachine.SwitchState(journal);
+        foreach (GameObject page in journalPages)
+        {
+            if (page == targetPage){
+                page.SetActive(true);
+                currentpage = page;
+            }
+            else
+            {
+                page.SetActive(false);
+            }
+        }
     }
 
     public void CloseJournal()
@@ -38,20 +62,16 @@ public class JournalManager : MonoBehaviour
         stateMachine.SwitchState(walk);
     }
 
-    public void OpenJournal()
-    {
-        stateMachine.SwitchState(journal);
-    }
 
     public void TurnPage() // Afficher le contenu tantôt d'une page, tantôt de l'autre
     {
-        if (currentpage == page1Content)
+        if (currentpage == page1Content) // vers page2
         {
             page1Content.SetActive(false);
             page2Content.SetActive(true);
             currentpage = page2Content;
         }
-        else if (currentpage == page2Content)
+        else if (currentpage == page2Content) // vers page1
         {
             page1Content.SetActive(true);
             page2Content.SetActive(false);
@@ -61,8 +81,10 @@ public class JournalManager : MonoBehaviour
 
     public void CreateCard(string clue)
     {
+        Debug.Log($"CreateCard : {clue}");
+        string thisclue = clue;
         ClueCard card = Instantiate(cardPrefab, gridParent);
-        card.FillCard(clue);
+        card.FillCard(thisclue);
     }
 
     public void AccusationTrigger()
