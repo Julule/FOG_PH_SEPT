@@ -1214,7 +1214,7 @@ PrefabInstance:
     - target: {fileID: -5044705140814978533, guid: 1ea6cd6885e169a4595c8f787b32a8cb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 9d38ec639a28bb342a6af9438bbac82d, type: 2}
+      objectReference: {fileID: 2100000, guid: 4ff5ea5c3f2519e47aaeeadaf23a253c, type: 2}
     - target: {fileID: -4085367074094539948, guid: 1ea6cd6885e169a4595c8f787b32a8cb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -1222,7 +1222,7 @@ PrefabInstance:
     - target: {fileID: -2342595135405517326, guid: 1ea6cd6885e169a4595c8f787b32a8cb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 9d38ec639a28bb342a6af9438bbac82d, type: 2}
+      objectReference: {fileID: 2100000, guid: 4ff5ea5c3f2519e47aaeeadaf23a253c, type: 2}
     - target: {fileID: 919132149155446097, guid: 1ea6cd6885e169a4595c8f787b32a8cb, type: 3}
       propertyPath: m_Name
       value: train
@@ -1230,7 +1230,7 @@ PrefabInstance:
     - target: {fileID: 3754827970487876996, guid: 1ea6cd6885e169a4595c8f787b32a8cb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 9d38ec639a28bb342a6af9438bbac82d, type: 2}
+      objectReference: {fileID: 2100000, guid: 4ff5ea5c3f2519e47aaeeadaf23a253c, type: 2}
     - target: {fileID: 4940036391527947996, guid: 1ea6cd6885e169a4595c8f787b32a8cb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -1238,7 +1238,7 @@ PrefabInstance:
     - target: {fileID: 9220213134117263902, guid: 1ea6cd6885e169a4595c8f787b32a8cb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 9d38ec639a28bb342a6af9438bbac82d, type: 2}
+      objectReference: {fileID: 2100000, guid: 4ff5ea5c3f2519e47aaeeadaf23a253c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 65702495048144492, guid: 1ea6cd6885e169a4595c8f787b32a8cb, type: 3}
@@ -4848,7 +4848,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 2800000, guid: e354627dd7cb35941be87bce1bd7e2f1, type: 3}
+  m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -4916,7 +4916,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 125d0dece527e304ba9083434c41ef76, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
