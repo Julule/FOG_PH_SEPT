@@ -12,6 +12,9 @@ public class JournalManager : MonoBehaviour
     private PlayerStateMachine.PlayerStates accusation;
     [SerializeField] private GameObject page1Content;
     [SerializeField] private GameObject page2Content;
+    //[SerializeField] private GameObject closeButton;
+    public AudioSource uiAudio;
+    public AudioClip closeClip;
     List<GameObject> journalPages = new();
     [SerializeField] private Transform gridParent; // l'objet qui porte le GridLayoutGroup
     [SerializeField] private ClueCard cardPrefab;
@@ -58,6 +61,7 @@ public class JournalManager : MonoBehaviour
 
     public void CloseJournal()
     {
+        uiAudio.PlayOneShot(closeClip);
         gameObject.SetActive(false);
         stateMachine.SwitchState(walk);
     }

@@ -62,8 +62,8 @@ public class DialogueManager : MonoBehaviour
             gameObject.SetActive(true); // activer le dialogueCanvas (c'est déjà fait au deuxième passage)
             DialogueLine line = currentDialogue.lines[dialogueIndex];
             portrait.sprite = line.speaker.portrait; 
-            // actorName.text = line.speaker.actorName
-            TypeWriterMachine.Instance.Show(line.speaker.actorName, actorName);
+            actorName.text = line.speaker.actorName;
+            // TypeWriterMachine.Instance.Show(line.speaker.actorName, actorName);
             TypeWriterMachine.Instance.Show(line.text, dialogueText);
             // dialogueText.text = line.text;
             dialogueIndex++;
@@ -78,7 +78,7 @@ public class DialogueManager : MonoBehaviour
     {
         if(currentDialogue.options.Length > 0) // si y'a des options ?
         {
-            Debug.Log($"nb d'options de ce dial : {currentDialogue.options.Length}");
+            // Debug.Log($"nb d'options de ce dial : {currentDialogue.options.Length}");
             for (int i = 0; i < currentDialogue.options.Length; i++) // Pour chaque options, la right et la false 
             {
                 DialogueOption thisOption = currentDialogue.options[i]; // stocker l'option en question (type, ligne, nextdialogue, clue)

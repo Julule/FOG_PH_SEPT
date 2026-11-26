@@ -20,8 +20,13 @@ public class TextReader : MonoBehaviour
 
     public void DisplayOneText()
     {
-        allTexts[i].gameObject.SetActive(true); // TODO : ajouter typewriter
-        i++;
+        if (i < allTexts.Count)
+        {
+            Debug.Log(i);
+            Debug.Log(allTexts.Count);
+            allTexts[i].gameObject.SetActive(true); // TODO : ajouter typewriter
+            i++; 
+        }
     }
 
 }
