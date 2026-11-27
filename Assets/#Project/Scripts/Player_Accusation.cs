@@ -8,6 +8,7 @@ public class Player_Accusation : MonoBehaviour
     [SerializeField] int requiredCount = 3; // le nb de cartes nécéssaires au submit
     private List<PlayCard> selected = new List<PlayCard>(); // les objets actuellement sélectionnés
     PlayCard[] playCards; // tous les objets du journal
+    [SerializeField] AudioSource stateSource;
 
     void OnEnable()
     {
@@ -25,6 +26,8 @@ public class Player_Accusation : MonoBehaviour
 
         submitButton.onClick.AddListener(Submit); // Préparer un evenement au clic sur le bouton
         RefreshSubmit();
+
+        stateSource.Play();
     }
 
     void OnDisable()
@@ -34,6 +37,7 @@ public class Player_Accusation : MonoBehaviour
             playCard.GetComponent<Button>().onClick.RemoveAllListeners();
             submitButton.onClick.RemoveListener(Submit);   
         }
+        stateSource.Stop();
     }
 
     void SelectCard(PlayCard playCard)

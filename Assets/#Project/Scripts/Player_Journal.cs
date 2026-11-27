@@ -7,6 +7,7 @@ public class Player_Journal : Player_Talk
 {
     [SerializeField] private GameObject journalCanvas;
     [SerializeField] private GameObject page1;
+    // [SerializeField] private AudioSource stateJournalSource;
 
 
     void OnEnable()
@@ -15,6 +16,14 @@ public class Player_Journal : Player_Talk
         journalCanvas.gameObject.SetActive(true);
         openJournalButton.gameObject.SetActive(false);
         // JournalManager.Instance.OpenJournal(page1);
+        // stateJournalSource.Play();
+        stateSource.Play();
+    }
+
+    void OnDisable()
+    {
+        //stateJournalSource.Stop();
+        stateSource.Stop();
     }
 
 }
